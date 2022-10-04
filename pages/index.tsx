@@ -31,15 +31,15 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="mx-auto w-full max-w-screen-lg">
-        <ul className="w-full flex flex-row mt-10 mb-10">
-          { ART.data.map((item, index) => <Art { ...item } key={index}/>) }
+        <ul className="w-full flex flex-row mt-10 mb-10" data-testid="full-list">
+          { ART.data.map((item, index) => <Art { ...item } key={index} testId={`full-${index}`}/>) }
         </ul>
         <h1>Example App</h1>
-        <form onSubmit={onSearch}>
-          <input type="search" placeholder="Search…" className="border" name="search" />
+        <form onSubmit={onSearch} data-testid="search-form">
+          <input type="search" placeholder="Search…" className="border" name="search" data-testid="search"/>
         </form>
-        <ul className="w-full flex flex-row mt-10 mb-10">
-        { filteredArts.map((item, index) => <Art { ...item } key={index}/>) }
+        <ul className="w-full flex flex-row mt-10 mb-10" data-testid="filtered-list">
+        { filteredArts.map((item, index) => <Art { ...item } key={index} testId={`filtered-${index}`}/>) }
         </ul>
       </main>
     </>
